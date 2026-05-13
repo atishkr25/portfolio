@@ -1,0 +1,104 @@
+"use client"
+
+import { companies } from '@/data/companiesData'
+
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
+import Image from 'next/image'
+import { motion } from 'motion/react'
+import { useState } from 'react'
+
+const WorkExperience = () => {
+    const [openItems, setOpenItems] = useState<string[]>(["item-0"])
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
+            className='w-full'>
+            <div className='text-start'>
+                <h3 className='text-md text-muted-foreground mt-2'>Featured</h3>
+                <h1 className='text-xl font-semibold text-foreground'>Experience</h1>
+            </div>
+
+            <div className='mt-4'>
+                <Accordion
+                    type="multiple"
+                    className="w-full"
+                    value={openItems}
+                    onValueChange={setOpenItems}
+                >
+                    {companies.map((item, index) => (
+                        <AccordionItem key={index} value={`item-${index}`}>
+                            <AccordionTrigger className="hover:no-underline">
+                                <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center w-full sm:pr-4 gap-1 sm:gap-0'>
+                                    <div className='flex items-center gap-2'>
+                                        <div>
+                                            <Image src={item.image} alt={item.name} width={50} height={50} className='w-10 h-10 ring-1 ring-gray-500 rounded-lg ' />
+                                        </div>
+                                        <div className='text-left'>
+                                            <h1 className='text-base sm:text-lg font-semibold '>{item.name}</h1>
+                                            <p className='text-xs sm:text-sm text-muted-foreground mt-1'>{item.role}</p>
+                                        </div>
+
+
+                                    </div>
+                                    <div className='text-left sm:text-right'>
+                                        <p className='text-xs sm:text-sm font-medium text-foreground'>{item.joinning_date} - {item.end_date}</p>
+                                        <p className='text-xs text-muted-foreground'>{item.location}</p>
+                                    </div>
+                                </div>
+                            </AccordionTrigger>
+                            <AccordionContent>
+                                <div className='space-y-4 pt-4'>
+                                    <div className='space-y-2'>
+                                        {item.description.map((desc: string, ind: number) => (
+                                            <div className='flex gap-2 items-start' key={ind}>
+                                                <span className='text-muted-foreground'>▪</span>
+                                                <p className='text-sm text-muted-foreground'>{desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className='pt-4'>
+                                        <p className='text-xs sm:text-sm font-medium text-foreground mb-3'>Technologies & Tools</p>
+                                        <TooltipProvider delayDuration={0} skipDelayDuration={300}>
+                                            <div className='flex flex-wrap gap-3'>
+                                                {
+                                                    item.tools.map((tool, index) => (
+                                                        <Tooltip key={index}>
+                                                            <TooltipTrigger asChild>
+                                                                <div className="flex items-center justify-center w-8 h-8 rounded-md bg-muted hover:bg-muted/80 hover:scale-110 transition-all duration-200 cursor-pointer">
+                                                                    <div className='w-4 h-4'> <tool.icon /></div>
+                                                                </div>
+                                                            </TooltipTrigger>
+                                                            <TooltipContent side="bottom" sideOffset={6}>
+                                                                <span className='text-xs'>{tool.name}</span>
+                                                            </TooltipContent>
+                                                        </Tooltip>
+                                                    ))
+                                                }
+                                            </div>
+                                        </TooltipProvider>
+                                    </div>
+                                </div>
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </div>
+        </motion.div>
+    )
+}
+
+export default WorkExperience
