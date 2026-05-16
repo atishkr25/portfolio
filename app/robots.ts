@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://hemantbytes.me/sitemap.xml',
+        sitemap: 'https://atish.dev/sitemap.xml',
     }
 }

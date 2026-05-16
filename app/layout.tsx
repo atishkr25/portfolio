@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Oneko from "@/components/Oneko";
 import UmamiAnalytics from "@/components/Umami";
 import { ThemeProvider } from "@/components/providers";
 import { Analytics } from "@vercel/analytics/next"
-const Geistfont = Geist({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -94,7 +94,7 @@ export default function RootLayout({
       <head>
         <meta name="google-site-verification" content="AYB9VEKLwESlSCH8mrHaL2P52FaHBZwVzRRomDup9Nc" />
       </head>
-      <body suppressHydrationWarning className={`${Geistfont.className} antialiased`}>
+      <body suppressHydrationWarning className={`${hankenGrotesk.className} antialiased`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
