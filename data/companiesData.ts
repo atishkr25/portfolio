@@ -14,11 +14,12 @@ import ExpressIcon from "../components/icons/express"
 export const companies: companiesTypes[] = [
   {
     name: "Open Source Contributor",
-    image: "/globe.svg",
-    joinning_date: "Feb 2026",
-    end_date: "Present",
+    image: "/heroui_logo.jpeg",
+    joinning_date: "Dec 2025",
+    end_date: "Jan 2026",
     role: "HeroUI - UI Component Library",
     location: "Open Source",
+    link: "https://heroui.com/",
     description: [
       "Identified and resolved critical styling bug in pagination component affecting large page counts (#5860)",
       "Improved pagination layout and alignment for better visual consistency across all page number ranges",
@@ -41,6 +42,7 @@ export const companies: companiesTypes[] = [
     end_date: "Present",
     role: "Personal Projects",
     location: "Self-Driven",
+    link: "#",
     description: [
       "Built and deployed full-stack web applications using React, Node.js, and MongoDB",
       "Developed scalable features like authentication, dashboards, and API integrations",

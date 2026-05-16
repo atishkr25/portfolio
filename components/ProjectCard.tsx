@@ -183,7 +183,7 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
                   src={data.img}
                   width={400}
                   height={200}
-                  className="w-full object-cover rounded-t-2xl h-40 sm:h-44 md:h-48 lg:h-56"
+                  className="w-full object-cover rounded-t-2xl h-36 sm:h-38 md:h-42 lg:h-48"
                   alt={`${data.name} project image`}
                 />
               </motion.div>
@@ -261,11 +261,11 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
             </div>
 
             {/* Content Section */}
-            <div className="p-4 sm:p-5 md:p-6 space-y-4 flex-1 flex flex-col bg-secondary">
+            <div className="p-3 sm:p-4 md:p-5 space-y-3 flex-1 flex flex-col bg-secondary">
               {/* Title and Links */}
               <div className="flex gap-2 sm:gap-3 items-start justify-between">
                 <motion.h3
-                  className="text-base sm:text-lg md:text-lg font-semibold text-foreground flex-1 min-w-0"
+                  className="text-sm sm:text-base md:text-base font-semibold text-foreground flex-1 min-w-0"
                   whileHover={{ x: 2 }}
                 >
                   <span className="break-words">{data.name}</span>

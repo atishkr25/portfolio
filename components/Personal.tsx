@@ -19,10 +19,10 @@ const Personal = () => {
 
   return (
     <section>
-      <p className="text-start text-muted-foreground mt-2">Insights</p>
-      <h2 className="text-xl font-semibold">Personal</h2>
+      <p className="text-start text-sm text-muted-foreground mt-1">Insights</p>
+      <h2 className="text-lg font-semibold">Personal</h2>
 
-      <div className='space-y-3 mt-4'>
+      <div className='space-y-2.5 mt-3'>
         {items.map((item, index) => (
           <motion.div
             key={item.title}
@@ -32,13 +32,16 @@ const Personal = () => {
             viewport={{ once: true }}
           >
             <Link href={item.href}>
-              <div className='p-4 rounded-lg border border-border/70 bg-card hover:bg-accent/40 hover:border-border transition-all duration-300 group cursor-pointer dark:border-border/30 dark:bg-secondary/20 dark:hover:bg-secondary/40 dark:hover:border-border/60'>
-                <h3 className='text-lg font-semibold text-foreground mb-1 group-hover:text-foreground/90'>
-                  {item.title}
-                </h3>
-                <p className='text-sm text-muted-foreground group-hover:text-muted-foreground/90 transition-colors'>
-                  {item.description}
-                </p>
+              <div className='p-3 rounded-lg border border-border/70 bg-card hover:bg-accent/40 hover:border-border transition-all duration-300 group cursor-pointer dark:border-border/30 dark:bg-secondary/20 dark:hover:bg-secondary/40 dark:hover:border-border/60 flex items-center justify-between gap-3'>
+                <div>
+                  <h3 className='text-base font-semibold text-foreground mb-0.5 group-hover:text-foreground/90'>
+                    {item.title}
+                  </h3>
+                  <p className='text-sm text-muted-foreground group-hover:text-muted-foreground/90 transition-colors'>
+                    {item.description}
+                  </p>
+                </div>
+                <span className='text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-lg flex-shrink-0'>→</span>
               </div>
             </Link>
           </motion.div>

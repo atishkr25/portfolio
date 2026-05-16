@@ -17,8 +17,8 @@ const Booking = () => {
     return (
         <div className='w-full'>
             {/* Main booking section */}
-            <div className='rounded-lg py-10 px-6 flex flex-col items-center justify-center space-y-7 border border-dashed border-black/15 -mt-4 dark:border-muted-foreground/25' >
-                <p className='text-lg sm:text-xl text-muted-foreground text-center'>Hey, you scrolled this far, let&apos;s talk.</p>
+            <div className='rounded-lg py-8 px-5 flex flex-col items-center justify-center space-y-5 border border-dashed border-black/15 -mt-4 dark:border-muted-foreground/25' >
+                <p className='text-base sm:text-lg text-muted-foreground text-center'>Hey, you scrolled this far, let&apos;s talk.</p>
                 
                 <Button
                     data-cal-namespace={calconfig.namespace}

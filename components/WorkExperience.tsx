@@ -15,6 +15,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip"
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'motion/react'
 import { useState } from 'react'
 
@@ -28,11 +29,11 @@ const WorkExperience = () => {
             transition={{ duration: 0.3, delay: 0.3 }}
             className='w-full'>
             <div className='text-start'>
-                <h3 className='text-md text-muted-foreground mt-2'>Featured</h3>
-                <h1 className='text-xl font-semibold text-foreground'>Experience</h1>
+                <h3 className='text-sm text-muted-foreground mt-1'>Featured</h3>
+                <h1 className='text-lg font-semibold text-foreground'>Experience</h1>
             </div>
 
-            <div className='mt-4'>
+            <div className='mt-3'>
                 <Accordion
                     type="multiple"
                     className="w-full"
@@ -45,10 +46,16 @@ const WorkExperience = () => {
                                 <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center w-full sm:pr-4 gap-1 sm:gap-0'>
                                     <div className='flex items-center gap-2'>
                                         <div>
-                                            <Image src={item.image} alt={item.name} width={50} height={50} className='w-10 h-10 ring-1 ring-gray-500 rounded-lg ' />
+                                            {item.link ? (
+                                                <Link href={item.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className='block hover:opacity-80 transition-opacity'>
+                                                    <Image src={item.image} alt={item.name} width={50} height={50} className='w-8 h-8 ring-1 ring-gray-500 rounded-lg' />
+                                                </Link>
+                                            ) : (
+                                                <Image src={item.image} alt={item.name} width={50} height={50} className='w-8 h-8 ring-1 ring-gray-500 rounded-lg' />
+                                            )}
                                         </div>
                                         <div className='text-left'>
-                                            <h1 className='text-base sm:text-lg font-semibold '>{item.name}</h1>
+                                            <h1 className='text-sm sm:text-base font-semibold '>{item.name}</h1>
                                             <p className='text-xs sm:text-sm text-muted-foreground mt-1'>{item.role}</p>
                                         </div>
 
@@ -61,16 +68,16 @@ const WorkExperience = () => {
                                 </div>
                             </AccordionTrigger>
                             <AccordionContent>
-                                <div className='space-y-4 pt-4'>
+                                <div className='space-y-3 pt-3'>
                                     <div className='space-y-2'>
                                         {item.description.map((desc: string, ind: number) => (
                                             <div className='flex gap-2 items-start' key={ind}>
                                                 <span className='text-muted-foreground'>▪</span>
-                                                <p className='text-sm text-muted-foreground'>{desc}</p>
+                                                <p className='text-sm sm:text-base text-muted-foreground'>{desc}</p>
                                             </div>
                                         ))}
                                     </div>
-                                    <div className='pt-4'>
+                                    <div className='pt-3'>
                                         <p className='text-xs sm:text-sm font-medium text-foreground mb-3'>Technologies & Tools</p>
                                         <TooltipProvider delayDuration={0} skipDelayDuration={300}>
                                             <div className='flex flex-wrap gap-3'>

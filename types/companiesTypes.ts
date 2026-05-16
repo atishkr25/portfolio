@@ -11,4 +11,5 @@ export interface companiesTypes {
   tools: skillTypes[]
   description: string[];
   status: boolean;
+  link?: string;
 }

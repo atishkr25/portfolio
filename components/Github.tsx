@@ -111,7 +111,7 @@ const Github = () => {
             <div className="space-y-4 ">
                 {/* Header */}
                 <div>
-                    <h2 className="text-2xl font-bold mb-1">
+                    <h2 className="text-xl font-bold mb-1">
                         {githubConfig.title}
                     </h2>
                     <p className="text-sm text-muted-foreground">
@@ -159,7 +159,7 @@ const Github = () => {
                         </Button>
                     </div>
                 ) : (
-                    <div className="rounded-2xl px-3 py-4 sm:px-5 sm:py-6">
+                    <div className="rounded-2xl px-2 py-3 sm:px-4 sm:py-5">
                         <div className="flex justify-center overflow-x-auto">
                             <ActivityCalendar
                                 data={contributions}

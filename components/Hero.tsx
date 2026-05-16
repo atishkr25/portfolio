@@ -30,6 +30,7 @@ const Hero = () => {
         try {
             await navigator.clipboard.writeText(email);
             setCopied(true);
+            if (navigator.vibrate) navigator.vibrate(50);
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
             console.error('Failed to copy:', err);
@@ -111,10 +112,10 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className='relative w-full'>
+                <div className='relative w-full hidden lg:block'>
                     {/* Banner Image */}
                     <Image
-                        className='w-full h-[10px] sm:h-[200px] md:h-[250px] lg:h-[290px] object-cover rounded-lg'
+                        className='w-full lg:h-[250px] object-cover rounded-lg'
                         src={minecreaft}
                         width={1240}
                         height={900}
@@ -124,15 +125,15 @@ const Hero = () => {
 
                 </div>
 
-                {/* Profile Image - positioned below banner */}
+                {/* Profile Image - positioned below banner on desktop, standalone on mobile */}
                 <motion.div
-                    className='relative -mt-10 sm:-mt-12 md:-mt-14 lg:-mt-16'
+                    className='relative mt-4 sm:mt-5 md:mt-6 lg:-mt-14'
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
                     <Image
-                        className='w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-cover rounded-full shadow-lg ring-4 ring-background'
+                        className='w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg ring-4 ring-background'
                         src={myimg}
                         alt='Atish profile picture'
                         width={500}
@@ -143,7 +144,7 @@ const Hero = () => {
 
             {/* Name and Social Links */}
             <motion.div
-                className='flex flex-col  sm:flex-row mt-4 sm:mt-6 gap-4 sm:items-center sm:justify-between'
+                className='flex flex-col  sm:flex-row mt-3 sm:mt-4 gap-3 sm:items-center sm:justify-between'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
@@ -152,7 +153,7 @@ const Hero = () => {
                     <div className='flex items-center gap-3'>
                         <h1
                             onMouseEnter={runScramble}
-                            className='relative inline-block dark:overflow-hidden text-xl sm:text-2xl lg:text-2xl font-semibold text-foreground'
+                            className='relative inline-block dark:overflow-hidden text-lg sm:text-xl lg:text-xl font-semibold text-foreground'
                         >
                             {nameText}
                             <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-white/5 -skew-x-12 animate-glass-flash pointer-events-none" />
@@ -200,7 +201,7 @@ const Hero = () => {
 
             {/* Bio */}
             < motion.div
-                className='text-start mt-4 sm:mt-6'
+                className='text-start mt-3 sm:mt-4'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
@@ -213,7 +214,7 @@ const Hero = () => {
 
             {/* Action Buttons */}
             <motion.div
-                className='flex flex-wrap gap-3 mt-6 sm:mt-8'
+                className='flex flex-wrap gap-2.5 mt-4 sm:mt-6'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.7 }}
@@ -256,24 +257,30 @@ const Hero = () => {
 
             {/* Email Display */}
             <motion.div
-                className='flex items-center gap-2 mt-6'
+                className='flex items-center gap-2 mt-4'
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
             >
                 <span className='text-sm text-muted-foreground'>•</span>
-                <span className='text-sm text-muted-foreground'>{email}</span>
-                <button
+                <motion.span
                     onClick={handleCopyEmail}
-                    className='ml-2 p-1 hover:bg-secondary rounded transition-colors'
+                    className='text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-colors'
+                    whileTap={{ scale: 0.95, x: [0, -2, 2, -1, 1, 0] }}
+                    transition={{ duration: 0.15 }}
+                >{email}</motion.span>
+                <motion.button
+                    onClick={handleCopyEmail}
+                    className='ml-2 p-1 hover:bg-secondary rounded transition-colors cursor-pointer'
                     title="Copy email"
+                    whileTap={{ scale: 0.85 }}
                 >
                     {copied ? (
                         <Check className='w-4 h-4 text-green-500' />
                     ) : (
                         <Copy className='w-4 h-4 text-muted-foreground hover:text-foreground' />
                     )}
-                </button>
+                </motion.button>
             </motion.div>
         </div >
     )

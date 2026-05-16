@@ -24,7 +24,7 @@ export function Contact() {
 
   return (
     <motion.div
-      className="pt-8 sm:pt-10"
+      className="pt-6 sm:pt-8"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -33,7 +33,7 @@ export function Contact() {
 
       {/* Footer */}
       <motion.div
-        className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mt-16 sm:mt-20 pt-4 border-t border-border/70 dark:border-border/50"
+        className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 mt-12 sm:mt-16 pt-3 border-t border-border/70 dark:border-border/50"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

@@ -7,10 +7,10 @@ import { TimeZoneDisplay } from "./TimeZoneDisplay";
 
 const Header = () => {
   return (
-    <div className="p-2">
+    <div className="py-1.5 px-2">
       <div className="flex justify-between items-center">
         <Link href={"#"} className="group">
-          <p className="text-2xl sm:text-3xl lg:text-4xl font-medium transition-transform duration-200 group-hover:scale-105">
+          <p className="text-xl sm:text-2xl lg:text-3xl font-medium transition-transform duration-200 group-hover:scale-105">
             Atish{" "}
             <span className="text-red-600 dark:text-red-500 rounded-lg transition-colors">.</span>
           </p>
