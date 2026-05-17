@@ -11,20 +11,28 @@ const hankenGrotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Atish Kumar | Full-Stack Developer",
+  title: "Atish | Full-Stack Engineer",
   description:
-    "I build scalable backend systems and solve complex problems using C++, Node.js, and modern web technologies.",
+    "Portfolio of Atish, a versatile Full-Stack Engineer, Frontend Developer, Backend Expert, and AI Engineer. Specializing in React, Node.js, TypeScript, Next.js, and AI integrations.",
   keywords: [
+    "Atish",
     "Atish Kumar",
+    "Full Stack Engineer",
+    "Frontend Developer",
     "Backend Developer",
-    "DSA Enthusiast",
-    "Full Stack Developer",
+    "Software Engineer",
+    "AI Engineer",
+    "React Developer",
+    "Next.js Developer",
     "Node.js Developer",
+    "TypeScript",
+    "MERN Stack",
     "Web Developer",
     "Portfolio",
+    "Hire Software Engineer"
   ],
-  authors: [{ name: "Atish Kumar" }],
-  creator: "Atish Kumar",
+  authors: [{ name: "Atish" }],
+  creator: "Atish",
   icons: {
     icon: "/assets/batmanfavicon.jpg",
   },
@@ -32,24 +40,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://atishkumar.me",
-    siteName: "Atish Kumar Portfolio",
-    title: "Atish Kumar | Backend Developer & DSA Enthusiast",
+    siteName: "Atish Portfolio",
+    title: "Atish | Full-Stack Engineer",
     description:
-      "I build scalable backend systems and solve complex problems using C++, Node.js, and modern web technologies.",
+      "Versatile Full-Stack Engineer, Frontend, Backend, and AI Developer building scalable, modern web applications and AI solutions.",
     images: [
       {
         url: "/atishprofilepic.jpg",
         width: 1200,
         height: 630,
-        alt: "Atish Kumar - Backend Developer",
+        alt: "Atish - Full-Stack Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Atish Kumar | Backend Developer",
+    title: "Atish | Full-Stack Engineer",
     description:
-      "Backend Developer building scalable systems with C++, Node.js, and modern web technologies.",
+      "Versatile Full-Stack Engineer, Frontend, Backend, and AI Developer building scalable, modern web applications.",
     images: ["/atishprofilepic.jpg"],
   },
   robots: {
@@ -71,10 +79,10 @@ const structuredData = {
   name: "Atish Kumar",
   url: "https://atishkumar.me",
   image: "/atishprofilepic.jpg",
-  jobTitle: "Backend Developer",
+  jobTitle: ["Full-Stack Engineer", "Frontend Developer", "Backend Developer", "AI Engineer"],
   worksFor: {
     "@type": "Organization",
-    name: "Freelance"
+    name: "Open to Work"
   },
   sameAs: [
     "https://linkedin.com/in/atish-kumar",
@@ -82,6 +90,7 @@ const structuredData = {
     "https://x.com/atish"
   ]
 };
+
 
 
 export default function RootLayout({
