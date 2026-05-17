@@ -30,7 +30,7 @@ const WorkExperience = () => {
             className='w-full'>
             <div className='text-start'>
                 <h3 className='text-sm text-muted-foreground mt-1'>Featured</h3>
-                <h1 className='text-lg font-semibold text-foreground'>Experience</h1>
+                <h1 className='text-xl font-semibold text-foreground'>Experience</h1>
             </div>
 
             <div className='mt-3'>
@@ -68,16 +68,8 @@ const WorkExperience = () => {
                                 </div>
                             </AccordionTrigger>
                             <AccordionContent>
-                                <div className='space-y-3 pt-3'>
-                                    <div className='space-y-2'>
-                                        {item.description.map((desc: string, ind: number) => (
-                                            <div className='flex gap-2 items-start' key={ind}>
-                                                <span className='text-muted-foreground'>▪</span>
-                                                <p className='text-sm sm:text-base text-muted-foreground'>{desc}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className='pt-3'>
+                                <div className='space-y-3 pt-1'>
+                                    <div>
                                         <p className='text-xs sm:text-sm font-medium text-foreground mb-3'>Technologies & Tools</p>
                                         <TooltipProvider delayDuration={0} skipDelayDuration={300}>
                                             <div className='flex flex-wrap gap-3'>
@@ -85,8 +77,8 @@ const WorkExperience = () => {
                                                     item.tools.map((tool, index) => (
                                                         <Tooltip key={index}>
                                                             <TooltipTrigger asChild>
-                                                                <div className="flex items-center justify-center w-8 h-8 rounded-md bg-muted hover:bg-muted/80 hover:scale-110 transition-all duration-200 cursor-pointer">
-                                                                    <div className='w-4 h-4'> <tool.icon /></div>
+                                                                <div className="flex items-center justify-center w-7 h-7 rounded bg-black/5 dark:bg-white/5 border border-dashed border-black/20 dark:border-white/20 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/40 dark:hover:border-white/40 hover:scale-105 transition-all duration-200 cursor-pointer text-foreground">
+                                                                    <div className='w-[14px] h-[14px]'> <tool.icon /></div>
                                                                 </div>
                                                             </TooltipTrigger>
                                                             <TooltipContent side="bottom" sideOffset={6}>
@@ -98,6 +90,15 @@ const WorkExperience = () => {
                                             </div>
                                         </TooltipProvider>
                                     </div>
+                                    <div className='space-y-2'>
+                                        {item.description.map((desc: string, ind: number) => (
+                                            <div className='flex gap-2 items-start' key={ind}>
+                                                <span className='text-muted-foreground'>▪</span>
+                                                <p className='text-sm sm:text-base text-muted-foreground'>{desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    
                                 </div>
                             </AccordionContent>
                         </AccordionItem>

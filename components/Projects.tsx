@@ -9,7 +9,7 @@ const Projects = () => {
   return (
     <div>
       <p className="text-start text-sm text-muted-foreground mt-1">Featured</p>
-      <h2 className="text-lg font-semibold">My Projects</h2>
+      <h2 className="text-xl font-semibold text-foreground">My Projects</h2>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}

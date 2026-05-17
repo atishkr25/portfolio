@@ -3,7 +3,7 @@ import { Button } from '../ui/button'
 import { getCalApi } from "@calcom/embed-react";
 import { calconfig } from '@/config/calconfig';
 import Image from 'next/image';
-import atishProfile from '../../public/atishprofilepic.jpg';
+import atishProfile from '../../public/assets/batmanProfile.jpg';
 
 const Booking = () => {
 

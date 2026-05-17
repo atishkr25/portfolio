@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image'
-import myimg from "../public/atishprofilepic.jpg";
+import myimg from "../public/assets/batmanProfile.jpg";
 import minecreaft from "../public/banner/himalaya4.jpg";
 import {
     Tooltip,
@@ -115,7 +115,7 @@ const Hero = () => {
                 <div className='relative w-full hidden lg:block'>
                     {/* Banner Image */}
                     <Image
-                        className='w-full lg:h-[250px] object-cover rounded-lg'
+                        className='w-full lg:h-[210px] object-cover rounded-lg'
                         src={minecreaft}
                         width={1240}
                         height={900}
@@ -153,7 +153,7 @@ const Hero = () => {
                     <div className='flex items-center gap-3'>
                         <h1
                             onMouseEnter={runScramble}
-                            className='relative inline-block dark:overflow-hidden text-lg sm:text-xl lg:text-xl font-semibold text-foreground'
+                            className='relative inline-block dark:overflow-hidden text-xl sm:text-2xl lg:text-2xl font-semibold text-foreground'
                         >
                             {nameText}
                             <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-white/5 -skew-x-12 animate-glass-flash pointer-events-none" />

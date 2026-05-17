@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Atish Kumar" }],
   creator: "Atish Kumar",
   icons: {
-    icon: "/favicon.jpg",
+    icon: "/assets/batmanfavicon.jpg",
   },
   openGraph: {
     type: "website",

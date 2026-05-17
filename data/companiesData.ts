@@ -4,10 +4,14 @@ import NextJsIcon from "../components/icons/nextjs"
 import JavascriptIcon from "../components/icons/javascript"
 import TailwindIcon from "../components/icons/tailwind"
 import TypescriptIcon from "../components/icons/typescript"
-// import CssIcon from "../components/icons/css"
+import VercelIcon from "../components/icons/vercel"
+import CssIcon from "../components/icons/css"
 import MongoDbIcon from "../components/icons/mongodb"
 import ExpressIcon from "../components/icons/express"
-// import PrismaIcon from "../components/icons/prisma"
+import PrismaIcon from "../components/icons/prisma"
+import NodejsIcon from "../components/icons/nodejs"
+import PostmanIcon from "../components/icons/postman"
+import HtmlIcon from "../components/icons/html"
 // TODO: Add company logos later
 
 // TODO: Add your actual work experience here. This is a template for future use.
@@ -52,9 +56,15 @@ export const companies: companiesTypes[] = [
     status: true,
     tools:[
       {id:1,name:"React",icon:ReactIcon},
-      {id:2,name:"Node.js",icon:ExpressIcon},
-      {id:3,name:"MongoDB",icon:MongoDbIcon},
-      {id:4,name:"Next.js",icon:NextJsIcon}
+      {id:2,name:"Express.js",icon:ExpressIcon},
+      {id:3,name:"Node.js",icon:NodejsIcon},
+      {id:4,name:"HTML",icon:HtmlIcon},
+      {id:5,name:"CSS",icon:CssIcon},
+      {id:6,name:"Tailwind",icon:TailwindIcon},
+      {id:7,name:"MongoDB",icon:MongoDbIcon},
+      {id:8,name:"Vercel",icon:VercelIcon},
+      {id:9,name:"Postman",icon:PostmanIcon},
+      {id:10,name:"TypeScript",icon:TypescriptIcon},
     ]
   },
 ];
