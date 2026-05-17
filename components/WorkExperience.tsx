@@ -48,10 +48,10 @@ const WorkExperience = () => {
                                         <div>
                                             {item.link ? (
                                                 <Link href={item.link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()} className='block hover:opacity-80 transition-opacity'>
-                                                    <Image src={item.image} alt={item.name} width={50} height={50} className='w-8 h-8 ring-1 ring-gray-500 rounded-lg' />
+                                                    <Image src={item.image} alt={item.name} width={50} height={50} className='w-10 h-10 ring-1 ring-gray-500 rounded-lg' />
                                                 </Link>
                                             ) : (
-                                                <Image src={item.image} alt={item.name} width={50} height={50} className='w-8 h-8 ring-1 ring-gray-500 rounded-lg' />
+                                                <Image src={item.image} alt={item.name} width={50} height={50} className='w-10 h-10 ring-1 ring-gray-500 rounded-lg' />
                                             )}
                                         </div>
                                         <div className='text-left'>
