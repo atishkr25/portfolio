@@ -10,11 +10,6 @@
   // --- CHARACTER DEFINITIONS ---
   const characters = {
     cat: { name: "Cat", file: "/oneko/oneko.gif", emoji: "🐱" },
-    dog: { name: "Dog", file: "/oneko/dog.gif", emoji: "🐶" },
-    snake: { name: "Snake", file: "/oneko/snake.gif", emoji: "🐍" },
-    avatar: { name: "My Avatar", file: "/oneko/avatar.gif", emoji: "🧑‍💻" },
-    bird: { name: "Bird", file: "/oneko/bird.gif", emoji: "🐦" },
-    bunny: { name: "Bunny", file: "/oneko/bunny.gif", emoji: "🐰" },
   };
 
   let currentCharacter = localStorage.getItem("oneko-character") || "cat";

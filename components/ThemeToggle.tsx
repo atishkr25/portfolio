@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useSound } from "../custom-hooks/useSound";
 import { useEffect, useState } from "react";
 
-const clickSoundUrl = "/sound/click.mp3";
+const clickSoundUrl = "/sound/torchsound.mp3";
 
 function applyThemeTransition() {
   if (typeof window === "undefined") return;
@@ -21,7 +21,7 @@ function applyThemeTransition() {
 
   style.textContent = `
     ::view-transition-group(root) {
-      animation-duration: 1s;
+      animation-duration: 0.8s;
       animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
     }
 

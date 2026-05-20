@@ -35,6 +35,7 @@ export const metadata: Metadata = {
   creator: "Atish",
   icons: {
     icon: "/assets/batmanfavicon.jpg",
+    apple: "/assets/batmanfavicon.jpg",
   },
   openGraph: {
     type: "website",
