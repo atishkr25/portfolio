@@ -39,13 +39,13 @@ function applyThemeTransition() {
     }
 
     @keyframes reveal-light {
-      from { clip-path: circle(0% at 50% 50%); }
-      to { clip-path: circle(100% at 50% 50%); }
+      from { clip-path: inset(0 0 100% 0); }
+      to { clip-path: inset(0 0 0 0); }
     }
 
     @keyframes reveal-dark {
-      from { clip-path: circle(0% at 50% 50%); }
-      to { clip-path: circle(100% at 50% 50%); }
+      from { clip-path: inset(0 0 100% 0); }
+      to { clip-path: inset(0 0 0 0); }
     }
   `;
 }
