@@ -19,8 +19,9 @@ import Link from 'next/link'
 import { motion } from 'motion/react'
 import { useState } from 'react'
 
-const WorkExperience = () => {
+const WorkExperience = ({ showAll = false }: { showAll?: boolean }) => {
     const [openItems, setOpenItems] = useState<string[]>(["item-0"])
+    const displayedCompanies = showAll ? companies : companies.slice(0, 2);
 
     return (
         <motion.div
@@ -40,7 +41,7 @@ const WorkExperience = () => {
                     value={openItems}
                     onValueChange={setOpenItems}
                 >
-                    {companies.map((item, index) => (
+                    {displayedCompanies.map((item, index) => (
                         <AccordionItem key={index} value={`item-${index}`}>
                             <AccordionTrigger className="hover:no-underline">
                                 <div className='flex flex-col sm:flex-row sm:justify-between sm:items-center w-full sm:pr-4 gap-1 sm:gap-0'>
@@ -104,6 +105,14 @@ const WorkExperience = () => {
                         </AccordionItem>
                     ))}
                 </Accordion>
+                {!showAll && (
+                    <div className="flex justify-center mt-6">
+                        <Link href="/experience" className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors rounded-md bg-secondary/20 hover:bg-secondary/40 text-foreground border border-border/50 hover:border-border">
+                            View all experience
+                            <span className="text-lg leading-none">→</span>
+                        </Link>
+                    </div>
+                )}
             </div>
         </motion.div>
     )

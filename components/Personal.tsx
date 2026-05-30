@@ -32,7 +32,7 @@ const Personal = () => {
             viewport={{ once: true }}
           >
             <Link href={item.href}>
-              <div className='p-3 rounded-lg border border-border/70 bg-card hover:bg-accent/40 hover:border-border transition-all duration-300 group cursor-pointer dark:border-border/30 dark:bg-secondary/20 dark:hover:bg-secondary/40 dark:hover:border-border/60 flex items-center justify-between gap-3'>
+              <div className='p-3 rounded-lg border border-border/70 bg-card hover:bg-accent/40 hover:border-border transition-all duration-300 group cursor-pointer dark:bg-[#171717] dark:hover:bg-[#171717]/80 dark:border-border/30 dark:hover:border-border/60 flex items-center justify-between gap-3'>
                 <div>
                   <h3 className='text-base font-semibold text-foreground mb-0.5 group-hover:text-foreground/90'>
                     {item.title}

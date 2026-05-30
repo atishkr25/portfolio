@@ -24,7 +24,7 @@ const Booking = () => {
                     data-cal-namespace={calconfig.namespace}
                     data-cal-link={calconfig.link}
                     data-cal-config={JSON.stringify(calconfig.config)}
-                    className='group flex items-center gap-2 bg-background hover:bg-accent text-foreground rounded-full px-4 py-3 text-base transition-all duration-500 rounded-2xl border border-dashed border-black/20 shadow-sm hover:shadow dark:bg-[#2F2F2F] dark:hover:bg-[#3A3A3A] dark:text-foreground dark:border-muted-foreground/25 dark:shadow-none'
+                    className='group flex items-center gap-2 bg-background hover:bg-accent text-foreground rounded-lg px-4 py-3 text-base transition-all duration-500 border border-dashed border-black/20 shadow-sm hover:shadow dark:bg-[#2F2F2F] dark:hover:bg-[#3A3A3A] dark:text-foreground dark:border-muted-foreground/25 dark:shadow-none'
                 >
                     <span className='flex items-center gap-2'>
                         <span className='w-6 h-6 rounded-full overflow-hidden ring-1 ring-black/10 dark:ring-white/10 flex-shrink-0'>
