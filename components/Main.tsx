@@ -6,13 +6,14 @@ import WorkExperience from "./WorkExperience";
 import Github from "./Github";
 import Booking from "./cal/Booking";
 import Personal from "./Personal";
+import AboutMe from "./AboutMe";
 
 
 const Main = () => {
 
 
   return (
-    <div className='space-y-16 w-full'>
+    <div className='space-y-20 w-full'>
       <section className='w-full'>
         <Hero />
       </section>
@@ -21,6 +22,9 @@ const Main = () => {
       </section>
       <section className='w-full'>
         <Projects />
+      </section>
+      <section className='w-full'>
+        <AboutMe />
       </section>
       <section className='w-full'>
         <Github />
