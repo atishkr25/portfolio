@@ -1,9 +1,15 @@
+"use client";
 import { githubConfig } from '@/config/Github';
 import React, { useEffect, useState } from 'react'
-import { ActivityCalendar } from "react-activity-calendar"
+import dynamic from 'next/dynamic';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { GithubIcon } from 'lucide-react';
+
+const ActivityCalendar = dynamic(
+    () => import('react-activity-calendar').then((mod) => mod.ActivityCalendar),
+    { ssr: false }
+);
 type ContributionItem = {
     date: string;
     count: number;
@@ -44,7 +50,7 @@ const Github = () => {
             try {
                 setIsLoading(true);
                 const response = await fetch(
-                    `https://github-contributions-api.deno.dev/atishkr25.json`,
+                    `${githubConfig.apiUrl || 'https://github-contributions-api.deno.dev'}/${githubConfig.username}.json`,
                 );
                 const data: { contributions?: unknown[] } = await response.json();
 
