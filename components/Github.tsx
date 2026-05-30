@@ -165,8 +165,8 @@ const Github = () => {
                         </Button>
                     </div>
                 ) : (
-                    <div className="rounded-2xl px-2 py-3 sm:px-4 sm:py-5">
-                        <div className="flex justify-center overflow-x-auto">
+                    <div className="rounded-2xl px-2 py-3 sm:px-4 sm:py-5 w-full">
+                        <div className="flex justify-center w-full [&_svg]:w-full [&_svg]:h-auto [&_svg]:max-w-full">
                             <ActivityCalendar
                                 data={contributions}
                                 blockSize={12}
