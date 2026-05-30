@@ -158,8 +158,15 @@ const Hero = () => {
                             {nameText}
                             <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-white/5 -skew-x-12 animate-glass-flash pointer-events-none" />
                         </h1>
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] sm:text-xs font-medium bg-green-500/10 text-green-500 border border-green-500/20 dark:bg-green-500/15">
+                            <span className="relative flex h-1.5 w-1.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                            </span>
+                            <span>Available for work</span>
+                        </div>
                     </div>
-                    <p className='text-xs sm:text-sm text-muted-foreground'>Frontend Developer building full-stack apps | Exploring DSA & CP</p>
+                    <p className='text-sm sm:text-base text-muted-foreground mt-1'>Frontend Developer building full-stack apps | Exploring DSA & CP</p>
                 </div>
 
                 {/* Social Icons */}
@@ -207,8 +214,7 @@ const Hero = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
             >
                 <p className='text-sm sm:text-base leading-6 sm:leading-7 text-muted-foreground'>
-                    I build full-stack applications using <span className='font-semibold font-mono'>React.js, JavaScript, Node.js, Express.js, MongoDB, Firebase </span>
-                    from pixel-perfect UIs to scalable backends. I don't just write code; I craft experiences that users love, contribute to open source, and constantly push myself to learn and grow as a developer.
+                    I build full-stack applications with pixel-perfect UIs and scalable backends. Open source contributor focused on performance, clean architecture, and solving complex problems.
                 </p>
             </motion.div >
 
