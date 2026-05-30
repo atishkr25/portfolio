@@ -90,7 +90,7 @@ const WorkExperience = () => {
                                             </div>
                                         </TooltipProvider>
                                     </div>
-                                    <div className='space-y-2'>
+                                    <div className='space-y-1.5'>
                                         {item.description.map((desc: string, ind: number) => (
                                             <div className='flex gap-2 items-start' key={ind}>
                                                 <span className='text-muted-foreground'>▪</span>
