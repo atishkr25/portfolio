@@ -8,12 +8,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'motion/react'
@@ -31,7 +26,7 @@ const WorkExperience = ({ showAll = false }: { showAll?: boolean }) => {
             className='w-full'>
             <div className='text-start'>
                 <h3 className='text-sm text-muted-foreground mt-1'>Featured</h3>
-                <h1 className='text-xl font-semibold text-foreground'>Experience</h1>
+                <h1 className='text-[22px] font-bold text-foreground'>Experience</h1>
             </div>
 
             <div className='mt-3'>
@@ -69,37 +64,29 @@ const WorkExperience = ({ showAll = false }: { showAll?: boolean }) => {
                                 </div>
                             </AccordionTrigger>
                             <AccordionContent>
-                                <div className='space-y-3 pt-1'>
+                                <div className='space-y-4 pt-4'>
                                     <div>
-                                        <p className='text-xs sm:text-sm font-medium text-foreground mb-3'>Technologies & Tools</p>
-                                        <TooltipProvider delayDuration={0} skipDelayDuration={300}>
-                                            <div className='flex flex-wrap gap-3'>
-                                                {
-                                                    item.tools.map((tool, index) => (
-                                                        <Tooltip key={index}>
-                                                            <TooltipTrigger asChild>
-                                                                <div className="flex items-center justify-center w-7 h-7 rounded bg-black/5 dark:bg-white/5 border border-dashed border-black/20 dark:border-white/20 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/40 dark:hover:border-white/40 hover:scale-105 transition-all duration-200 cursor-pointer text-foreground">
-                                                                    <div className='w-[14px] h-[14px]'> <tool.icon /></div>
-                                                                </div>
-                                                            </TooltipTrigger>
-                                                            <TooltipContent side="bottom" sideOffset={6}>
-                                                                <span className='text-xs'>{tool.name}</span>
-                                                            </TooltipContent>
-                                                        </Tooltip>
-                                                    ))
-                                                }
-                                            </div>
-                                        </TooltipProvider>
+                                        <p className='text-xs sm:text-sm font-bold text-foreground mb-3'>Technologies</p>
+                                        <div className='flex flex-wrap gap-2.5'>
+                                            {
+                                                item.tools.map((tool, index) => (
+                                                    <div key={index} className="flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-lg bg-black/5 dark:bg-[#2E2E2E] border border-dashed border-black/20 dark:border-white/20 hover:bg-black/10 dark:hover:bg-[#3A3A3A] hover:border-black/40 dark:hover:border-white/40 hover:scale-[1.02] transition-all duration-200 cursor-pointer text-foreground">
+                                                        <div className='w-4 h-4 flex items-center justify-center'> <tool.icon /></div>
+                                                        <span className='text-xs sm:text-[13px] font-semibold leading-none mt-0.5'>{tool.name}</span>
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
                                     </div>
-                                    <div className='space-y-1.5'>
+                                    <div className='flex flex-col mt-3'>
                                         {item.description.map((desc: string, ind: number) => (
-                                            <div className='flex gap-2 items-start' key={ind}>
-                                                <span className='text-muted-foreground'>▪</span>
-                                                <p className='text-sm sm:text-base text-muted-foreground'>{desc}</p>
-                                            </div>
+                                            <p className='text-sm sm:text-base text-muted-foreground' key={ind}>
+                                                <span className='text-muted-foreground/70 mr-1.5'>•</span>
+                                                {desc}
+                                            </p>
                                         ))}
                                     </div>
-                                    
+
                                 </div>
                             </AccordionContent>
                         </AccordionItem>

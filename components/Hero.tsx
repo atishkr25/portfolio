@@ -166,7 +166,7 @@ const Hero = () => {
                             <span>Available for work</span>
                         </div>
                     </div>
-                    <p className='text-sm sm:text-base text-muted-foreground mt-1'>Frontend Developer building full-stack apps | Exploring DSA & CP</p>
+                    <p className='text-sm sm:text-base text-muted-foreground mt-1'>Full-Stack Engineer | MERN Stack & AI Integrations</p>
                 </div>
 
                 {/* Social Icons */}

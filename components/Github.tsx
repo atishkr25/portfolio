@@ -117,7 +117,7 @@ const Github = () => {
             <div className="space-y-4 ">
                 {/* Header */}
                 <div>
-                    <h2 className="text-xl font-bold mb-1">
+                    <h2 className="text-[22px] font-bold mb-1">
                         {githubConfig.title}
                     </h2>
                     <p className="text-sm text-muted-foreground">

@@ -22,6 +22,8 @@ import ExpressIcon from "./icons/express";
 import FigmaIcon from "./icons/figma";
 import PrismaIcon from "./icons/prisma";
 import VercelIcon from "./icons/vercel";
+import Postman from './icons/postman';
+import Razorpay from './icons/rozarpay';
 
 const AboutMe = () => {
   const skills = [
@@ -37,12 +39,14 @@ const AboutMe = () => {
     { name: 'Prisma', icon: PrismaIcon },
     { name: 'Figma', icon: FigmaIcon },
     { name: 'Vercel', icon: VercelIcon },
+    { name: 'Postman', icon: Postman },
+    { name: 'Razorpay', icon: Razorpay },
   ];
 
   return (
     <section>
       <p className="text-start text-sm text-muted-foreground mt-1">About</p>
-      <h2 className="text-xl font-semibold text-foreground">Me</h2>
+      <h2 className="text-[22px] font-bold text-foreground">Me</h2>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -70,7 +74,7 @@ const AboutMe = () => {
               Atish Kumar
             </h3>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
-              I'm a Frontend Developer building full-stack applications with React, Next.js, and TypeScript. I love creating clean, user-friendly interfaces and solving real-world problems. Currently exploring Data Structures, Algorithms, and Competitive Programming.
+              I'm a Full-Stack Software Engineer specializing in MERN Stack, Next.JS, Typescript, and AI integrations. I build scalable backends, pixel-perfect frontends, and ship products that solve real problems.
             </p>
           </div>
 
