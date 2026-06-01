@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className="py-1.5 px-2">
       <div className="flex justify-between items-center">
-        <Link href={"#"} className="group">
+        <Link href={"/"} className="group">
           <p className="text-xl sm:text-2xl lg:text-3xl font-medium transition-transform duration-200 group-hover:scale-105">
             Atish{" "}
             <span className="text-red-600 dark:text-red-500 rounded-lg transition-colors">.</span>
@@ -20,13 +20,17 @@ const Header = () => {
         <div className="hidden xl:flex items-center gap-4">
           <TimeZoneDisplay />
           <Nav />
-          <ThemeToggle />
+          <div className="hidden">
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Tablet/Mobile controls */}
         <div className="flex xl:hidden items-center gap-2 sm:gap-3">
           <TimeZoneDisplay />
-          <ThemeToggle />
+          <div className="hidden">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </div>

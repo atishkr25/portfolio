@@ -19,7 +19,7 @@ export default function Home() {
           className=" sticky top-0 left-0 right-0 h-1 bg-red-700 origin-left z-50"
           style={{ scaleX }}
         />
-        <div className="sticky top-0 z-50 backdrop-blur-md bg-background/60">
+        <div className="sticky top-0 z-50 backdrop-blur-md bg-transparent">
           <Header />
         </div>
         <Main />

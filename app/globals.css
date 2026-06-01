@@ -65,7 +65,8 @@
   }
 
   body {
-    @apply bg-background text-foreground leading-relaxed text-[15px];
+    @apply text-foreground leading-relaxed text-[15px];
+    background-color: transparent;
     font-family: inherit;
   }
 
