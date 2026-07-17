@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Oneko from "@/components/Oneko";
-import LiquidBackground from "@/components/LiquidBackground";
 import UmamiAnalytics from "@/components/Umami";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/providers";
@@ -105,8 +104,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="AYB9VEKLwESlSCH8mrHaL2P52FaHBZwVzRRomDup9Nc" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js" strategy="beforeInteractive" />
-        <Script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js" strategy="beforeInteractive" />
       </head>
       <body suppressHydrationWarning className={`${hankenGrotesk.className} antialiased`}>
         <script
@@ -116,7 +113,6 @@ export default function RootLayout({
         <ThemeProvider>
           <Analytics />
           {process.env.NODE_ENV === "production" && <UmamiAnalytics />}
-          <LiquidBackground />
           <Oneko />
           {children}
         </ThemeProvider>
