@@ -1,36 +1,27 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import Nav from "./Nav";
+import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
-import { TimeZoneDisplay } from "./TimeZoneDisplay";
 
 const Header = () => {
   return (
-    <div className="py-1.5 px-2">
-      <div className="flex justify-between items-center">
-        <Link href={"/"} className="group">
-          <p className="text-xl sm:text-2xl lg:text-3xl font-medium transition-transform duration-200 group-hover:scale-105">
-            Atish{" "}
-            <span className="text-red-600 dark:text-red-500 rounded-lg transition-colors">.</span>
-          </p>
-        </Link>
-
-        {/* Desktop nav - xl and above */}
-        <div className="hidden xl:flex items-center gap-4">
-          <TimeZoneDisplay />
-          <Nav />
-          <div className="hidden">
-            <ThemeToggle />
-          </div>
+    <div className="py-4">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-6">
+          <Link href="/" className="relative w-10 h-10 rounded-xl overflow-hidden border border-border dark:border-white/10 hover:opacity-80 transition-opacity shadow-sm dark:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            <Image src="/assets/batmanProfile.jpg" alt="Atish" fill className="object-cover" />
+          </Link>
+          
+          <nav className="hidden sm:flex items-center gap-5 text-sm font-medium text-muted-foreground">
+            <Link href="#work" className="hover:text-foreground transition-colors">Work</Link>
+            <Link href="#projects" className="hover:text-foreground transition-colors">Projects</Link>
+            <Link href="#achievements" className="hover:text-foreground transition-colors">Achievements</Link>
+          </nav>
         </div>
 
-        {/* Tablet/Mobile controls */}
-        <div className="flex xl:hidden items-center gap-2 sm:gap-3">
-          <TimeZoneDisplay />
-          <div className="hidden">
-            <ThemeToggle />
-          </div>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
         </div>
       </div>
     </div>

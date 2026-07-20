@@ -1,21 +1,24 @@
 "use client";
-import Projects from "./Projects";
-import { Contact } from "./Contact";
 import Hero from "./Hero";
-import WorkExperience from "./WorkExperience";
 import Github from "./Github";
-import Booking from "./cal/Booking";
-import Personal from "./Personal";
+import WorkExperience from "./WorkExperience";
+import Projects from "./Projects";
 import AboutMe from "./AboutMe";
+import Personal from "./Personal";
+import { Contact } from "./Contact";
+import Footer from "./Footer";
 
 
 const Main = () => {
 
 
   return (
-    <div className='space-y-20 w-full'>
+    <div className='space-y-16 sm:space-y-20 w-full pt-4 sm:pt-6'>
       <section className='w-full'>
         <Hero />
+      </section>
+      <section className='w-full'>
+        <Github />
       </section>
       <section className='w-full'>
         <WorkExperience />
@@ -27,18 +30,14 @@ const Main = () => {
         <AboutMe />
       </section>
       <section className='w-full'>
-        <Github />
-      </section>
-      <section className='w-full'>
-        <Booking />
+        <Contact />
       </section>
       <section className='w-full'>
         <Personal />
       </section>
       <section className='w-full'>
-        <Contact />
+        <Footer />
       </section>
-
     </div>
   );
 };

@@ -39,23 +39,23 @@ export const githubConfig = {
   weekdays: ['', 'M', '', 'W', '', 'F', ''],
 
   // Total count label template
-  totalCountLabel: '{{count}} contributions in the last year',
+  totalCountLabel: '{{count}} contributions in 2026 on GitHub.',
 
   // Theme configuration for dark and light modes
   theme: {
     dark: [
-      'rgb(22, 27, 34)', // Very dark for no contributions
-      'rgb(14, 68, 41)', // Dark green
-      'rgb(0, 109, 50)', // Medium green
-      'rgb(38, 166, 65)', // Bright green
-      'rgb(57, 211, 83)', // Very bright green
+      'rgba(255, 255, 255, 0.05)', // Very dark for no contributions
+      '#0e4429', // Level 1
+      '#006d32', // Level 2
+      '#26a641', // Level 3
+      '#39d353', // Level 4
     ],
     light: [
-      '#EBEDF0', // No contributions - light gray
-      '#9CE9A8', // Level 4 - light green (less activity)
-      '#31A14D', // Level 3 - medium-dark green
-      '#216E39', // Level 2 - dark green
-      '#0E4620', // Level 1 - very dark green (more activity)
+      'rgba(0, 0, 0, 0.05)', // No contributions
+      'rgba(0, 0, 0, 0.15)', // Level 1
+      'rgba(0, 0, 0, 0.3)', // Level 2
+      'rgba(0, 0, 0, 0.6)', // Level 3
+      'rgba(0, 0, 0, 0.9)', // Level 4
     ],
   },
 

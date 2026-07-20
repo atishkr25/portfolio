@@ -5,6 +5,14 @@ import dynamic from 'next/dynamic';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { GithubIcon } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import Image from 'next/image';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const ActivityCalendar = dynamic(
     () => import('react-activity-calendar').then((mod) => mod.ActivityCalendar),
@@ -38,12 +46,18 @@ function filterLastYear(contributions: ContributionItem[]): ContributionItem[] {
     });
 }
 
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return `${date.getDate().toString().padStart(2, '0')}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date.getFullYear()}`;
+};
+
 const Github = () => {
 
     const [contributions, setContributions] = useState<ContributionItem[]>([]);
     const [totalContributions, setTotalContributions] = useState<number>(0);
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
+    const { resolvedTheme } = useTheme();
 
     useEffect(() => {
         async function fetchData() {
@@ -113,78 +127,102 @@ const Github = () => {
         fetchData();
     }, []);
     return (
-        <div>
-            <div className="space-y-4 ">
-                {/* Header */}
-                <div>
-                    <h2 className="text-[22px] font-bold mb-1">
-                        {githubConfig.title}
-                    </h2>
-                    <p className="text-sm text-muted-foreground">
-                        <b>{githubConfig.username}</b>&apos;s {githubConfig.subtitle}
-                    </p>
-                    {!isLoading && !hasError && totalContributions > 0 && (
-                        <div className="flex items-center gap-4 mt-3">
-                            <p className="text-sm">
-                                Total: <span className="font-semibold">{totalContributions.toLocaleString()}</span> contributions
-                            </p>
-                            <span className="text-xs text-muted-foreground">● Offline</span>
-                            <span className="text-xs text-muted-foreground">⬇ Yesterday worked</span>
-                            <span className="text-xs text-muted-foreground">0h</span>
-                        </div>
-                    )}
-                </div>
-
-                {/* Content */}
-                {isLoading ? (
-                    <div className="flex items-center justify-center py-16">
-                        <div className="text-center">
-                            <div className="border-primary mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-t-transparent"></div>
-                            <p className="text-muted-foreground text-sm">
-                                {githubConfig.loadingState.description}
-                            </p>
-                        </div>
-                    </div>
-                ) : hasError || contributions.length === 0 ? (
-                    <div className="text-muted-foreground border-border rounded-lg border p-8 text-center">
-                        <div className="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
-                            <GithubIcon className="h-8 w-8" />
-                        </div>
-                        <p className="mb-2 font-medium">{githubConfig.errorState.title}</p>
-                        <p className="mb-4 text-sm">
-                            {githubConfig.errorState.description}
+        <div className="w-full">
+            {/* Content */}
+            {isLoading ? (
+                <div className="flex items-center justify-center py-16">
+                    <div className="text-center">
+                        <div className="border-primary mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-2 border-t-transparent"></div>
+                        <p className="text-muted-foreground text-sm">
+                            {githubConfig.loadingState.description}
                         </p>
-                        <Button variant="outline" asChild>
-                            <Link
-                                href={`https://github.com/${githubConfig.username}`}
-                                className="inline-flex items-center gap-2"
-                            >
-                                <GithubIcon className="h-4 w-4" />
-                                {githubConfig.errorState.buttonText}
-                            </Link>
-                        </Button>
                     </div>
-                ) : (
-                    <div className="rounded-2xl px-2 py-3 sm:px-4 sm:py-5 w-full">
-                        <div className="flex justify-center w-full [&_svg]:w-full [&_svg]:h-auto [&_svg]:max-w-full">
-                            <ActivityCalendar
-                                data={contributions}
-                                blockSize={12}
-                                blockMargin={3}
-                                blockRadius={2}
-                                fontSize={githubConfig.fontSize}
-                                maxLevel={githubConfig.maxLevel}
-                                theme={githubConfig.theme}
-                                labels={{
-                                    months: githubConfig.months,
-                                    weekdays: githubConfig.weekdays,
-                                    totalCount: githubConfig.totalCountLabel,
-                                }}
-                            />
+                </div>
+            ) : hasError || contributions.length === 0 ? (
+                <div className="text-muted-foreground border-border rounded-lg border p-8 text-center bg-secondary dark:bg-white/5">
+                    <div className="bg-muted mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
+                        <GithubIcon className="h-8 w-8" />
+                    </div>
+                    <p className="mb-2 font-medium">{githubConfig.errorState.title}</p>
+                    <p className="mb-4 text-sm">
+                        {githubConfig.errorState.description}
+                    </p>
+                    <Button variant="outline" asChild>
+                        <Link
+                            href={`https://github.com/${githubConfig.username}`}
+                            className="inline-flex items-center gap-2"
+                        >
+                            <GithubIcon className="h-4 w-4" />
+                            {githubConfig.errorState.buttonText}
+                        </Link>
+                    </Button>
+                </div>
+            ) : (
+                <div className="w-full mt-6">
+                    <TooltipProvider delayDuration={0}>
+                        <div className="w-full">
+                            <div className="[&_text]:fill-muted-foreground [&_text]:text-sm [&_svg]:max-w-full [&_svg]:h-auto flex flex-col justify-center">
+                                <ActivityCalendar
+                                    data={contributions}
+                                    blockSize={12}
+                                    blockMargin={4}
+                                    blockRadius={2}
+                                    fontSize={14}
+                                    theme={githubConfig.theme}
+                                    colorScheme={(resolvedTheme as 'light' | 'dark') || 'dark'}
+                                    showColorLegend={false}
+                                    showTotalCount={false}
+                                    showWeekdayLabels={false}
+                                    labels={{
+                                        months: githubConfig.months,
+                                    }}
+                                    renderBlock={(block, activity) => (
+                                        <Tooltip>
+                                            <TooltipTrigger asChild>
+                                                {block}
+                                            </TooltipTrigger>
+                                            <TooltipContent className="bg-primary text-primary-foreground border-none px-3 py-1.5 rounded-md text-xs shadow-lg">
+                                                {activity.count} contributions on {formatDate(activity.date)}
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    )}
+                                />
+                                
+                                {/* Custom Footer */}
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-3 gap-3 sm:gap-0 text-sm text-muted-foreground w-full">
+                                    <div>
+                                        {totalContributions} contributions in the last year on <Link href={`https://github.com/${githubConfig.username}`} target="_blank" className="underline decoration-muted-foreground/50 underline-offset-4 hover:text-foreground transition-colors">GitHub</Link>.
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex items-center gap-2">
+                                            <span>Less</span>
+                                            <div className="flex gap-1">
+                                                <div className="w-3 h-3 rounded-sm bg-black/5 dark:bg-white/5"></div>
+                                                <div className="w-3 h-3 rounded-sm bg-black/15 dark:bg-[#1f3f2b]"></div>
+                                                <div className="w-3 h-3 rounded-sm bg-black/30 dark:bg-[#2e6b3c]"></div>
+                                                <div className="w-3 h-3 rounded-sm bg-black/60 dark:bg-[#3fa14f]"></div>
+                                                <div className="w-3 h-3 rounded-sm bg-black/90 dark:bg-[#52d964]"></div>
+                                            </div>
+                                            <span>More</span>
+                                        </div>
+                                        {/* Cat Graphic */}
+                                        <div className="hidden sm:block ml-2">
+                                           <Image 
+                                             src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" 
+                                             alt="Running Cat" 
+                                             width={32} 
+                                             height={32} 
+                                             className="opacity-70 dark:invert-0 invert select-none pointer-events-none"
+                                             unoptimized
+                                           />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                )}
-            </div>
+                    </TooltipProvider>
+                </div>
+            )}
         </div>
     )
 }

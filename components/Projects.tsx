@@ -11,13 +11,13 @@ const Projects = ({ showAll = false }: { showAll?: boolean }) => {
   return (
     <div>
       <p className="text-start text-sm text-muted-foreground mt-1">Featured</p>
-      <h2 className="text-[22px] font-bold text-foreground">My Projects</h2>
+      <h2 className="text-2xl font-semibold text-foreground">Projects</h2>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.3 }}
-        className="w-full grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 m-auto gap-4 mt-3">
+        className="w-full grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 m-auto gap-5 mt-4">
         {displayedProjects.map((el: projectTypes, index: number) => (
           <ProjectCard data={el} key={index} />
         ))}

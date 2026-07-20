@@ -6,6 +6,7 @@ import UmamiAnalytics from "@/components/Umami";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/providers";
 import { Analytics } from "@vercel/analytics/next"
+import ScrollToTop from "@/components/ScrollToTop";
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -115,6 +116,7 @@ export default function RootLayout({
           {process.env.NODE_ENV === "production" && <UmamiAnalytics />}
           <Oneko />
           {children}
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>

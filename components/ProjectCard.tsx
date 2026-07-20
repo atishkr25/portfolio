@@ -141,7 +141,7 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
       >
         <Card
           ref={cardRef}
-          className="border-0 rounded-2xl overflow-hidden relative bg-card hover:shadow-xl transition-all duration-300 flex flex-col h-full will-change-transform"
+          className="border border-border dark:border-white/5 rounded-2xl overflow-hidden relative bg-card dark:bg-[#141414] hover:border-border dark:hover:border-white/10 transition-all duration-300 flex flex-col h-full will-change-transform"
           style={{
             transform: "translateZ(0) rotateX(0deg) rotateY(0deg)",
             WebkitTransform: "translateZ(0) rotateX(0deg) rotateY(0deg)",
@@ -172,7 +172,6 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
           />
 
           <CardContent className="p-0 flex flex-col flex-1">
-            {/* Image Container */}
             <div className="relative">
               <motion.div
                 whileHover={{ scale: 1.03 }}
@@ -183,85 +182,14 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
                   src={data.img}
                   width={400}
                   height={200}
-                  className="w-full object-cover rounded-t-2xl h-36 sm:h-38 md:h-42 lg:h-48"
+                  className="w-full object-cover rounded-t-2xl h-40 sm:h-48 md:h-56"
                   alt={`${data.name} project image`}
                 />
-              </motion.div>
-
-              {/* Overlay on Hover - Desktop/Tablet */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isHovered ? 1 : 0 }}
-                transition={{ duration: 0.2 }}
-                className="absolute inset-0 bg-black/40 hidden sm:flex items-center justify-center gap-3 sm:gap-4 rounded-t-2xl"
-              >
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{
-                    scale: isHovered ? 1 : 0.8,
-                    opacity: isHovered ? 1 : 0
-                  }}
-                  transition={{ duration: 0.2 }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    href={data.live_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors"
-                  >
-                    <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-                  </Link>
-                </motion.div>
-
-                {data.video && (
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{
-                      scale: isHovered ? 1 : 0.8,
-                      opacity: isHovered ? 1 : 0
-                    }}
-                    transition={{ duration: 0.2, delay: 0.05 }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Dialog>
-                      <DialogTrigger
-                        className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors"
-                        onClick={() => setisVideo(true)}
-                      >
-                        <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white fill-white" />
-                      </DialogTrigger>
-                      <VideoComponent isVideo={isVideo} video={data.video} />
-                    </Dialog>
-                  </motion.div>
-                )}
-
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{
-                    scale: isHovered ? 1 : 0.8,
-                    opacity: isHovered ? 1 : 0
-                  }}
-                  transition={{ duration: 0.2, delay: 0.1 }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    href={data.github_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors"
-                  >
-                    <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
-                  </Link>
-                </motion.div>
               </motion.div>
             </div>
 
             {/* Content Section */}
-            <div className="p-3 sm:p-4 md:p-5 space-y-3 flex-1 flex flex-col bg-secondary">
+            <div className="p-4 sm:p-5 md:p-6 space-y-3 flex-1 flex flex-col bg-card dark:bg-[#141414]">
               {/* Title and Links */}
               <div className="flex gap-2 sm:gap-3 items-start justify-between">
                 <motion.h3
@@ -326,9 +254,11 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
                 
                 {/* Status and View Details */}
                 <div className="flex items-center justify-between pt-2">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                    <span className="text-xs text-muted-foreground">All Systems Operational</span>
+                  <div className="flex items-center">
+                    <span className="px-2 py-1 text-[10px] sm:text-xs font-medium bg-green-500/10 text-green-500 border border-green-500/20 rounded-full flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                      All Systems Operational
+                    </span>
                   </div>
                   <Link
                     href={data.live_link}
