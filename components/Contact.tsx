@@ -24,7 +24,7 @@ export function Contact() {
           data-cal-namespace={calconfig.namespace}
           data-cal-link={calconfig.link}
           data-cal-config={JSON.stringify(calconfig.config)}
-          className="group flex items-center gap-2 bg-secondary dark:bg-[#2F2F2F] hover:bg-secondary/80 dark:hover:bg-[#3A3A3A] border border-border dark:border-white/5 rounded-full px-4 py-2 text-sm sm:text-base font-medium text-foreground transition-all duration-500"
+          className="group flex items-center gap-2 bg-secondary dark:bg-[#2F2F2F] hover:bg-secondary/80 dark:hover:bg-[#3A3A3A] border border-border dark:border-white/5 rounded-xl px-4 py-1.5 text-sm sm:text-base font-medium text-foreground transition-all duration-500"
         >
           <span className="flex items-center gap-2">
             <span className="w-6 h-6 rounded-full overflow-hidden relative border border-border dark:border-white/10 flex-shrink-0">
