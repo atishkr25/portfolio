@@ -3,12 +3,13 @@ import Link from "next/link";
 import { FileText, Mail, Copy, Check } from "lucide-react";
 import { useState } from "react";
 import { GithubIcon } from "lucide-react";
+import { socialLinks } from "@/data/socialLinks";
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("your.email@gmail.com"); // Replace with actual email
+    navigator.clipboard.writeText("atish1816@gmail.com"); 
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -54,7 +55,7 @@ export default function Hero() {
           className="flex items-center gap-2 px-4 py-2 bg-secondary dark:bg-[#1a1a1a] hover:bg-secondary/80 dark:hover:bg-[#222] border border-border dark:border-white/10 rounded-lg transition-colors text-sm font-medium text-muted-foreground dark:text-white/70"
         >
           <Mail className="w-4 h-4" />
-          atishkr25@gmail.com
+          atish1816@gmail.com
           {copied ? <Check className="w-4 h-4 text-green-500 ml-1" /> : <Copy className="w-4 h-4 ml-1" />}
         </button>
       </div>
@@ -63,15 +64,14 @@ export default function Hero() {
       <div className="mt-6">
         <p className="text-sm text-foreground mb-4">Here are my <span className="font-semibold">socials</span></p>
         <div className="flex flex-wrap gap-2">
-          <Link href="https://github.com/atishkr25" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-secondary dark:bg-[#1a1a1a] hover:bg-secondary/80 dark:hover:bg-[#222] border border-border dark:border-white/10 rounded-lg text-xs font-medium text-muted-foreground dark:text-white/70 transition-colors">
-            <GithubIcon className="w-3.5 h-3.5" /> Github
-          </Link>
-          <Link href="https://linkedin.com/in/atish-kumar" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-secondary dark:bg-[#1a1a1a] hover:bg-secondary/80 dark:hover:bg-[#222] border border-border dark:border-white/10 rounded-lg text-xs font-medium text-muted-foreground dark:text-white/70 transition-colors">
-            <div className="w-3.5 h-3.5 flex items-center justify-center font-bold">in</div> LinkedIn
-          </Link>
-          <Link href="https://x.com/atish" target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-secondary dark:bg-[#1a1a1a] hover:bg-secondary/80 dark:hover:bg-[#222] border border-border dark:border-white/10 rounded-lg text-xs font-medium text-muted-foreground dark:text-white/70 transition-colors">
-            <div className="w-3.5 h-3.5 flex items-center justify-center font-bold">𝕏</div> X
-          </Link>
+          {socialLinks.filter(link => link.label !== "Mail").map((link, index) => {
+            const Icon = link.icon;
+            return (
+              <Link key={index} href={link.href} target="_blank" className="flex items-center gap-2 px-3 py-1.5 bg-secondary dark:bg-[#1a1a1a] hover:bg-secondary/80 dark:hover:bg-[#222] border border-border dark:border-white/10 rounded-lg text-xs font-medium text-muted-foreground dark:text-white/70 transition-colors">
+                <Icon className="w-3.5 h-3.5" /> {link.label === "Twitter / X" ? "X" : link.label}
+              </Link>
+            )
+          })}
         </div>
       </div>
     </div>
