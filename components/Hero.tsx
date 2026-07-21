@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FileText, Mail, Copy, Check } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { GithubIcon } from "lucide-react";
 import { socialLinks } from "@/data/socialLinks";
 
@@ -38,6 +38,11 @@ export default function Hero() {
     }, 30);
   };
 
+  useEffect(() => {
+    handleNameHover();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const copyEmail = () => {
     navigator.clipboard.writeText("atish1816@gmail.com"); 
     setCopied(true);
@@ -67,7 +72,7 @@ export default function Hero() {
       {/* Intro Text */}
       <div className="flex flex-col gap-4">
         <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
-          Hi, I&apos;m <span onMouseEnter={handleNameHover} className="cursor-default inline-block min-w-[180px]">{name}</span> <span className="text-muted-foreground font-medium">— Full-Stack Engineer</span>
+          Hi, I&apos;m <span onMouseEnter={handleNameHover} className="cursor-default inline-block">{name}</span> <span className="text-muted-foreground font-medium">— Full-Stack Engineer</span>
         </h1>
         <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
           I&apos;m a Full-Stack Software Engineer specializing in MERN Stack, Next.JS, Typescript, and AI integrations. I build scalable backends, pixel-perfect frontends, and ship products that solve real problems.
