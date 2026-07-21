@@ -13,7 +13,7 @@ const Main = () => {
 
 
   return (
-    <div className='space-y-16 sm:space-y-20 w-full pt-4 sm:pt-6'>
+    <div className='space-y-16 sm:space-y-20 w-full pt-8 sm:pt-10'>
       <section className='w-full'>
         <Hero />
       </section>

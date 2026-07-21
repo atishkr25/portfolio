@@ -17,9 +17,21 @@ export default function Hero() {
   return (
     <div className="flex flex-col gap-6 w-full">
       {/* Avatar */}
-      <div className="relative w-24 h-24">
-        <Image src="/assets/batmanProfile.jpg" alt="Atish Kumar" fill className="object-cover rounded-full border border-border ring-4 ring-background" />
+      <div className="relative w-24 h-24 group cursor-default">
+        <Image src="/assets/batmanProfile.jpg" alt="Atish Kumar" fill className="object-cover rounded-full border border-border ring-4 ring-background transition-transform duration-300 group-hover:scale-105" />
         <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background"></div>
+        
+        {/* Tooltip */}
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 group-hover:-top-12 transition-all duration-300 pointer-events-none z-10 flex flex-col items-center">
+          <div className="bg-foreground text-background text-xs font-semibold px-3 py-1.5 rounded-full whitespace-nowrap shadow-xl flex items-center gap-2 border border-border/20">
+             <span className="relative flex h-2 w-2">
+               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+             </span>
+             Available for work
+          </div>
+          <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-foreground mt-[1px]"></div>
+        </div>
       </div>
 
       {/* Intro Text */}
