@@ -1,12 +1,42 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FileText, Mail, Copy, Check } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { GithubIcon } from "lucide-react";
 import { socialLinks } from "@/data/socialLinks";
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
+  const [name, setName] = useState("Atish Kumar");
+  const originalName = "Atish Kumar";
+  const letters = "無空日中生水天火地風山川木土金月年月水火風土神龍刀剣";
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleNameHover = () => {
+    let iteration = 0;
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
+      setName(
+        originalName
+          .split("")
+          .map((letter, index) => {
+            if (index < iteration) {
+              return originalName[index];
+            }
+            if (originalName[index] === " ") return " ";
+            return letters[Math.floor(Math.random() * 26)];
+          })
+          .join("")
+      );
+
+      if (iteration >= originalName.length) {
+        clearInterval(intervalRef.current!);
+      }
+
+      iteration += 1 / 2;
+    }, 30);
+  };
 
   const copyEmail = () => {
     navigator.clipboard.writeText("atish1816@gmail.com"); 
@@ -37,7 +67,7 @@ export default function Hero() {
       {/* Intro Text */}
       <div className="flex flex-col gap-4">
         <h1 className="text-3xl sm:text-4xl font-bold text-foreground">
-          Hi, I&apos;m Atish Kumar <span className="text-muted-foreground font-medium">— Full-Stack Engineer</span>
+          Hi, I&apos;m <span onMouseEnter={handleNameHover} className="cursor-default inline-block min-w-[180px]">{name}</span> <span className="text-muted-foreground font-medium">— Full-Stack Engineer</span>
         </h1>
         <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
           I&apos;m a Full-Stack Software Engineer specializing in MERN Stack, Next.JS, Typescript, and AI integrations. I build scalable backends, pixel-perfect frontends, and ship products that solve real problems.
