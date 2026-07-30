@@ -24,16 +24,7 @@ type ContributionItem = {
     level: 0 | 1 | 2 | 3 | 4;
 };
 
-type GitHubContributionResponse = {
-    date: string;
-    contributionCount: number;
-    contributionLevel:
-    | 'NONE'
-    | 'FIRST_QUARTILE'
-    | 'SECOND_QUARTILE'
-    | 'THIRD_QUARTILE'
-    | 'FOURTH_QUARTILE';
-};
+
 
 // Helper function to filter contributions to past year
 function filterLastYear(contributions: ContributionItem[]): ContributionItem[] {
@@ -64,39 +55,24 @@ const Github = () => {
             try {
                 setIsLoading(true);
                 const response = await fetch(
-                    `${githubConfig.apiUrl || 'https://github-contributions-api.deno.dev'}/${githubConfig.username}.json`,
+                    `${githubConfig.apiUrl || 'https://github-contributions-api.jogruber.de/v4'}/${githubConfig.username}?y=last`
                 );
-                const data: { contributions?: unknown[] } = await response.json();
+                const data: { contributions?: ContributionItem[] } = await response.json();
 
                 if (data?.contributions && Array.isArray(data.contributions)) {
-                    // Flatten the nested array structure
-                    const flattenedContributions = data.contributions.flat();
-
-                    // Convert contribution levels to numbers
-                    const contributionLevelMap = {
-                        NONE: 0,
-                        FIRST_QUARTILE: 1,
-                        SECOND_QUARTILE: 2,
-                        THIRD_QUARTILE: 3,
-                        FOURTH_QUARTILE: 4,
-                    };
-
-                    // Transform to the expected format
-                    const validContributions = flattenedContributions
+                    const validContributions = data.contributions
                         .filter(
-                            (item: unknown): item is GitHubContributionResponse =>
+                            (item): item is ContributionItem =>
                                 typeof item === 'object' &&
                                 item !== null &&
                                 'date' in item &&
-                                'contributionCount' in item &&
-                                'contributionLevel' in item,
+                                'count' in item &&
+                                'level' in item
                         )
-                        .map((item: GitHubContributionResponse) => ({
+                        .map((item) => ({
                             date: String(item.date),
-                            count: Number(item.contributionCount || 0),
-                            level: (contributionLevelMap[
-                                item.contributionLevel as keyof typeof contributionLevelMap
-                            ] || 0) as ContributionItem['level'],
+                            count: Number(item.count || 0),
+                            level: Number(item.level || 0) as ContributionItem['level'],
                         }));
 
                     if (validContributions.length > 0) {
