@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
-import Oneko from "@/components/Oneko";
+
 import UmamiAnalytics from "@/components/Umami";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/providers";
@@ -114,7 +114,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Analytics />
           {process.env.NODE_ENV === "production" && <UmamiAnalytics />}
-          <Oneko />
+
           {children}
           <ScrollToTop />
         </ThemeProvider>
