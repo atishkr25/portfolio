@@ -193,7 +193,7 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
               {/* Title and Links */}
               <div className="flex gap-2 sm:gap-3 items-start justify-between">
                 <motion.h3
-                  className="text-sm sm:text-base md:text-base font-semibold text-foreground flex-1 min-w-0"
+                  className="text-lg sm:text-xl font-bold tracking-tight text-foreground flex-1 min-w-0"
                   whileHover={{ x: 2 }}
                 >
                   <span className="break-words">{data.name}</span>
@@ -228,13 +228,13 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
               </div>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3">
                 {data.description}
               </p>
 
               {/* Technologies Section */}
               <div className="space-y-3 mt-auto pt-2 border-t border-border/30">
-                <p className="text-xs text-muted-foreground">Technologies</p>
+                <p className="text-xs font-semibold tracking-wider uppercase text-muted-foreground">Technologies</p>
                 <TooltipProvider delayDuration={300}>
                   <div className="flex items-center gap-2.5">
                     {data?.tech?.map((tech: skillTypes) => (
@@ -262,7 +262,7 @@ const ProjectCard = ({ data, index }: { data: projectTypes; index?: number }) =>
                   </div>
                   <Link
                     href={data.live_link}
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+                    className="text-xs font-medium tracking-wide uppercase text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
                   >
                     View Details <span>→</span>
                   </Link>

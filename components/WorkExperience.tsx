@@ -58,11 +58,11 @@ const WorkExperience = ({ showAll = false }: { showAll?: boolean }) => {
                         </div>
 
                         {/* Descriptions */}
-                        <div className='flex flex-col gap-1.5 mt-3'>
+                        <div className='flex flex-col mt-3 space-y-0'>
                             {item.description.map((desc: string, ind: number) => (
-                                <p className='text-sm sm:text-sm text-muted-foreground leading-relaxed flex items-start gap-2' key={ind}>
-                                    <span className='text-muted-foreground/50 mt-0.5'>•</span>
-                                    <span>{desc}</span>
+                                <p className='text-base text-muted-foreground leading-relaxed' key={ind}>
+                                    <span className='text-muted-foreground/50 mr-1.5'>▪</span>
+                                    {desc}
                                 </p>
                             ))}
                         </div>

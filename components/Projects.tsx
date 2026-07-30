@@ -10,8 +10,8 @@ const Projects = ({ showAll = false }: { showAll?: boolean }) => {
 
   return (
     <div>
-      <p className="text-start text-sm text-muted-foreground mt-1">Featured</p>
-      <h2 className="text-2xl font-semibold text-foreground">Projects</h2>
+      <p className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">Featured</p>
+      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mt-1 mb-2">Projects</h2>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
