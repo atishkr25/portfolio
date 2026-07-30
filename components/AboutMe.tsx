@@ -24,6 +24,7 @@ import PrismaIcon from "./icons/prisma";
 import VercelIcon from "./icons/vercel";
 import Postman from './icons/postman';
 import Razorpay from './icons/rozarpay';
+import SupabaseIcon from './icons/supabase';
 
 const AboutMe = () => {
   const skills = [
@@ -41,6 +42,7 @@ const AboutMe = () => {
     { name: 'Vercel', icon: VercelIcon },
     { name: 'Postman', icon: Postman },
     { name: 'Razorpay', icon: Razorpay },
+    { name: 'Supabase', icon: SupabaseIcon },
   ];
 
   return (
@@ -74,7 +76,7 @@ const AboutMe = () => {
               Atish Kumar
             </h3>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
-              I'm a Full-Stack Software Engineer specializing in MERN Stack, Next.JS, Typescript, and AI integrations. I build scalable backends, pixel-perfect frontends, and ship products that solve real problems.
+              I'm a Full-Stack Software Engineer specializing in <span className="underline decoration-muted-foreground/40 underline-offset-4">MERN Stack</span>, <span className="underline decoration-muted-foreground/40 underline-offset-4">Next.JS</span>, <span className="underline decoration-muted-foreground/40 underline-offset-4">Typescript</span>, <span className="underline decoration-muted-foreground/40 underline-offset-4">Supabase</span>, and <span className="underline decoration-muted-foreground/40 underline-offset-4">AI integrations</span>. I build scalable backends, pixel-perfect frontends, and ship products that solve real problems.
             </p>
           </div>
 

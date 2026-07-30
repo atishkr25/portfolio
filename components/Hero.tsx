@@ -75,7 +75,7 @@ export default function Hero() {
           Hi, I&apos;m <span onMouseEnter={handleNameHover} className="cursor-default inline-block">{name}</span> <span className="text-muted-foreground font-medium">— Full-Stack Engineer</span>
         </h1>
         <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
-          I&apos;m a Full-Stack Software Engineer specializing in MERN Stack, Next.JS, Typescript, and AI integrations. I build scalable backends, pixel-perfect frontends, and ship products that solve real problems.
+          I&apos;m a Full-Stack Software Engineer specializing in <span className="underline decoration-muted-foreground/40 underline-offset-4">MERN Stack</span>, <span className="underline decoration-muted-foreground/40 underline-offset-4">Next.JS</span>, <span className="underline decoration-muted-foreground/40 underline-offset-4">Typescript</span>, <span className="underline decoration-muted-foreground/40 underline-offset-4">Supabase</span>, and <span className="underline decoration-muted-foreground/40 underline-offset-4">AI integrations</span>. I build scalable backends, pixel-perfect frontends, and ship products that solve real problems.
         </p>
       </div>
 
