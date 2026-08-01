@@ -45,10 +45,10 @@ export const githubConfig = {
   theme: {
     dark: [
       'rgba(255, 255, 255, 0.05)', // Very dark for no contributions
-      '#0e4429', // Level 1
-      '#006d32', // Level 2
-      '#26a641', // Level 3
-      '#39d353', // Level 4
+      'rgba(255, 255, 255, 0.15)', // Level 1
+      'rgba(255, 255, 255, 0.3)', // Level 2
+      'rgba(255, 255, 255, 0.6)', // Level 3
+      'rgba(255, 255, 255, 0.9)', // Level 4
     ],
     light: [
       'rgba(0, 0, 0, 0.05)', // No contributions

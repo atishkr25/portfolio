@@ -174,10 +174,10 @@ const Github = () => {
                                             <span>Less</span>
                                             <div className="flex gap-1">
                                                 <div className="w-3 h-3 rounded-sm bg-black/5 dark:bg-white/5"></div>
-                                                <div className="w-3 h-3 rounded-sm bg-black/15 dark:bg-[#1f3f2b]"></div>
-                                                <div className="w-3 h-3 rounded-sm bg-black/30 dark:bg-[#2e6b3c]"></div>
-                                                <div className="w-3 h-3 rounded-sm bg-black/60 dark:bg-[#3fa14f]"></div>
-                                                <div className="w-3 h-3 rounded-sm bg-black/90 dark:bg-[#52d964]"></div>
+                                                <div className="w-3 h-3 rounded-sm bg-black/15 dark:bg-white/15"></div>
+                                                <div className="w-3 h-3 rounded-sm bg-black/30 dark:bg-white/30"></div>
+                                                <div className="w-3 h-3 rounded-sm bg-black/60 dark:bg-white/60"></div>
+                                                <div className="w-3 h-3 rounded-sm bg-black/90 dark:bg-white/90"></div>
                                             </div>
                                             <span>More</span>
                                         </div>
