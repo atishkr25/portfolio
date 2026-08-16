@@ -7,49 +7,6 @@ import { useEffect, useState } from "react";
 
 const clickSoundUrl = "/sound/torchsound.mp3";
 
-function applyThemeTransition() {
-  if (typeof window === "undefined") return;
-
-  const id = "theme-clip-transition";
-  let style = document.getElementById(id) as HTMLStyleElement | null;
-
-  if (!style) {
-    style = document.createElement("style");
-    style.id = id;
-    document.head.appendChild(style);
-  }
-
-  style.textContent = `
-    ::view-transition-group(root) {
-      animation-duration: 0.8s;
-      animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
-    }
-
-    ::view-transition-new(root) {
-      animation-name: reveal-light;
-    }
-
-    .dark::view-transition-new(root) {
-      animation-name: reveal-dark;
-    }
-
-    ::view-transition-old(root) {
-      animation: none;
-      z-index: -1;
-    }
-
-    @keyframes reveal-light {
-      from { clip-path: inset(0 0 100% 0); }
-      to { clip-path: inset(0 0 0 0); }
-    }
-
-    @keyframes reveal-dark {
-      from { clip-path: inset(0 0 100% 0); }
-      to { clip-path: inset(0 0 0 0); }
-    }
-  `;
-}
-
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const { playSound } = useSound(clickSoundUrl);
@@ -63,19 +20,8 @@ export function ThemeToggle() {
   const Icon = isDark ? Moon : Sun;
 
   const handleToggle = () => {
-    applyThemeTransition();
-
-    const switchTheme = () => {
-      playSound();
-      setTheme(isDark ? "light" : "dark");
-    };
-
-    if (!document.startViewTransition) {
-      switchTheme();
-      return;
-    }
-
-    document.startViewTransition(switchTheme);
+    playSound();
+    setTheme(isDark ? "light" : "dark");
   };
 
   if (!mounted) {
@@ -97,7 +43,8 @@ export function ThemeToggle() {
         border border-border/50 hover:border-border
         transition-colors duration-200"
       whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.9, x: [0, -3, 3, -3, 3, 0] }}
+      transition={{ duration: 0.2 }}
       aria-label="Toggle theme"
     >
       <AnimatePresence mode="wait">
